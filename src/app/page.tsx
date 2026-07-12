@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const FADE_DOWN_ANIMATION_VARIANTS = {
+const FADE_DOWN_ANIMATION_VARIANTS: Variants = {
   hidden: { opacity: 0, y: -10 },
   show: { opacity: 1, y: 0, transition: { type: "spring" } },
 };
