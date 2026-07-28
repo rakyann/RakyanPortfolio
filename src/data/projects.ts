@@ -49,7 +49,6 @@ export type Project = {
     behavior: string;
   };
 
-  // (The rest of the sections 6-18 are kept minimal here for structure but can be expanded)
   problemStatement: string;
   result: {
     outcome: string;
@@ -60,61 +59,6 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
-  {
-    slug: "mdmedia-portal",
-    title: "MDMedia Internal Portal",
-    category: "Dashboard / B2B",
-    description: "Redesigning an enterprise portal to streamline workflows and improve operational efficiency for over 500+ employees.",
-    color: "from-blue-500/10 to-purple-500/10",
-    heroImage: "/mdmedia_desktop.jpg",
-    
-    overview: {
-      what: "A comprehensive redesign of the MDMedia internal portal used by employees for daily operational tasks.",
-      role: "Lead UI/UX Designer",
-      timeline: "Maret 2025 - Agustus 2025",
-      team: "1 Product Manager, 1 UI/UX Designer, 3 Frontend Engineers, 2 Backend Engineers",
-      tools: ["Figma", "Notion", "Slack"],
-      deliverables: ["User Research Report", "Wireframes", "Design System", "High Fidelity Prototypes", "Developer Handoff"]
-    },
-
-    background: {
-      why: "The existing portal was outdated, slow, and caused friction in employee daily workflows.",
-      businessProblem: "High operational time spent on simple tasks due to poor UX, leading to decreased productivity.",
-      userProblem: "Employees found it hard to navigate the complex information architecture to find necessary tools.",
-      opportunity: "Streamlining the IA and modernizing the UI to save hundreds of work hours monthly."
-    },
-
-    goals: {
-      business: ["Increase employee productivity by 20%", "Reduce support tickets related to portal navigation"],
-      user: ["Find necessary tools within 3 clicks", "Experience a modern, fast, and responsive interface"],
-      metrics: ["Task Success Rate", "Time on Task", "System Usability Scale (SUS) Score"]
-    },
-
-    research: {
-      methodology: "User Interviews (n=10), Surveys (n=50), and Heuristic Evaluation of the old portal.",
-      painPoints: ["Information overload on the dashboard", "Unclear navigation hierarchy", "Slow loading times"],
-      insights: ["Employees rely on search rather than navigation because the menu is too complex", "Mobile access is needed but currently broken"],
-      opportunityMapping: "Implement a customizable widget-based dashboard so users see only what they need."
-    },
-
-    persona: {
-      name: "Budi, Operations Manager",
-      quote: "\"I just want to approve requests quickly without navigating through 5 different menus.\"",
-      goals: ["Approve daily requests efficiently", "Monitor team performance at a glance"],
-      frustrations: ["Cluttered UI makes finding the approval button hard", "System logs out randomly"],
-      needs: ["Quick actions on the dashboard", "Clear notifications"],
-      behavior: "Uses desktop mostly, but checks approvals on mobile during transit."
-    },
-
-    problemStatement: "How might we redesign the internal portal so that employees can complete their daily operational tasks efficiently and without frustration?",
-    
-    result: {
-      outcome: "Successfully launched the redesigned portal to 500+ employees with positive reception.",
-      businessImpact: "Reduced average task completion time by 30%.",
-      userImpact: "Employees reported feeling less overwhelmed and more confident using the system.",
-      reflection: "Working closely with DevOps early on was crucial to ensure the complex UI was technically feasible."
-    }
-  },
   {
     slug: "gani-consulting",
     title: "CV Gani Pranata - Psychology & HR Platform (Ongoing)",
@@ -171,6 +115,61 @@ export const PROJECTS: Project[] = [
     }
   },
   {
+    slug: "mdmedia-portal",
+    title: "MDMedia Internal Portal",
+    category: "Dashboard / B2B",
+    description: "Redesigning an enterprise portal to streamline workflows and improve operational efficiency for over 500+ employees.",
+    color: "from-blue-500/10 to-purple-500/10",
+    heroImage: "/mdmedia_desktop.jpg",
+    
+    overview: {
+      what: "A comprehensive redesign of the MDMedia internal portal used by employees for daily operational tasks.",
+      role: "Lead UI/UX Designer",
+      timeline: "Maret 2025 - Agustus 2025",
+      team: "1 Product Manager, 1 UI/UX Designer, 3 Frontend Engineers, 2 Backend Engineers",
+      tools: ["Figma", "Notion", "Slack"],
+      deliverables: ["User Research Report", "Wireframes", "Design System", "High Fidelity Prototypes", "Developer Handoff"]
+    },
+
+    background: {
+      why: "The existing portal was outdated, slow, and caused friction in employee daily workflows.",
+      businessProblem: "High operational time spent on simple tasks due to poor UX, leading to decreased productivity.",
+      userProblem: "Employees found it hard to navigate the complex information architecture to find necessary tools.",
+      opportunity: "Streamlining the IA and modernizing the UI to save hundreds of work hours monthly."
+    },
+
+    goals: {
+      business: ["Increase employee productivity by 20%", "Reduce support tickets related to portal navigation"],
+      user: ["Find necessary tools within 3 clicks", "Experience a modern, fast, and responsive interface"],
+      metrics: ["Task Success Rate", "Time on Task", "System Usability Scale (SUS) Score"]
+    },
+
+    research: {
+      methodology: "User Interviews (n=10), Surveys (n=50), and Heuristic Evaluation of the old portal.",
+      painPoints: ["Information overload on the dashboard", "Unclear navigation hierarchy", "Slow loading times"],
+      insights: ["Employees rely on search rather than navigation because the menu is too complex", "Mobile access is needed but currently broken"],
+      opportunityMapping: "Implement a customizable widget-based dashboard so users see only what they need."
+    },
+
+    persona: {
+      name: "Budi, Operations Manager",
+      quote: "\"I just want to approve requests quickly without navigating through 5 different menus.\"",
+      goals: ["Approve daily requests efficiently", "Monitor team performance at a glance"],
+      frustrations: ["Cluttered UI makes finding the approval button hard", "System logs out randomly"],
+      needs: ["Quick actions on the dashboard", "Clear notifications"],
+      behavior: "Uses desktop mostly, but checks approvals on mobile during transit."
+    },
+
+    problemStatement: "How might we redesign the internal portal so that employees can complete their daily operational tasks efficiently and without frustration?",
+    
+    result: {
+      outcome: "Successfully launched the redesigned portal to 500+ employees with positive reception.",
+      businessImpact: "Reduced average task completion time by 30%.",
+      userImpact: "Employees reported feeling less overwhelmed and more confident using the system.",
+      reflection: "Working closely with DevOps early on was crucial to ensure the complex UI was technically feasible."
+    }
+  },
+  {
     slug: "olivia-ralph-wedding",
     title: "Olivia & Ralph - Interactive Wedding & Live Guest Camera",
     category: "SaaS & Interactive Web App",
@@ -179,44 +178,44 @@ export const PROJECTS: Project[] = [
     heroImage: "/wedding_invitation.png",
     
     overview: {
-      what: "An interactive wedding web app with automated Google Drive Live Guest Camera API and real-time RSVP management.",
-      role: "Lead Fullstack Developer & Product Designer",
+      what: "Digital wedding invitation platform for Gratia Wedding Organizer Purwokerto with Google Drive Live Guest Camera photo syncing.",
+      role: "Lead Web Developer & Cloud Integration Architect",
       timeline: "2 Weeks",
-      team: "1 Fullstack Lead",
-      tools: ["Laravel", "React", "Google Drive API", "OAuth 2.0", "Tailwind CSS"],
-      deliverables: ["Interactive Invitation Web App", "Google Drive Live Guest Camera Engine", "Couple Admin Memory Vault"]
+      team: "1 Fullstack Developer",
+      tools: ["Next.js", "Google Drive API", "Tailwind CSS", "Framer Motion"],
+      deliverables: ["Interactive Wedding Landing Page", "Google Drive Live Guest Camera", "Couple Dashboard & 1-Click ZIP Downloader"]
     },
 
     background: {
-      why: "Couples struggle to collect high-resolution candid photos taken by guests during wedding receptions.",
-      businessProblem: "Fragmented photo sharing via messaging apps results in heavy compression and missed memories.",
-      userProblem: "Guests take hundreds of great photos but have no easy way to share them with the couple live.",
-      opportunity: "Build a zero-app web camera widget that uploads photos directly to the couple's Google Drive."
+      why: "Wedding guests take hundreds of candid photos on their phones, but couples lose 90% of them because sending via chat apps compresses quality and requires manual follow-ups.",
+      businessProblem: "Traditional wedding websites only provide static information without interactive post-event value for clients.",
+      userProblem: "Guests didn't want to install extra apps to share photos; couples wanted all high-resolution original photos organized in one place.",
+      opportunity: "Integrate a zero-install browser camera that streams guest photos directly into the couple's private Google Drive folder."
     },
 
     goals: {
-      business: ["Collect 300+ high-res guest photos live during reception", "Achieve 95%+ RSVP response rate"],
-      user: ["Snap and share photos directly from smartphone browser", "Download all reception memories in 1 click"],
-      metrics: ["Guest Photo Upload Rate", "RSVP Response Latency", "Original Resolution Retention"]
+      business: ["Increase client referral rate for Gratia Wedding Organizer", "100% guest photo collection rate without app downloads"],
+      user: ["Upload reception photos instantly in 2 taps", "Bulk download all wedding photos in original resolution"],
+      metrics: ["Guest Photo Upload Count", "Drive Upload Latency", "Couple Satisfaction Score"]
     },
 
     research: {
-      methodology: "User Flow Optimization for Reception Guests & Post-Event Memory Collection Survey",
-      painPoints: ["Installing apps for a 1-day event causes high friction", "Messaging apps compress photos heavily"],
-      insights: ["Browser-native camera access with direct Google Drive OAuth background sync is 10x faster"],
-      opportunityMapping: "Implement a 1-tap Guest Camera widget streaming directly to Google Drive API."
+      methodology: "User Flow Mapping with Wedding Planners & Guests",
+      painPoints: ["Installing new apps for single event causes 80% drop-off", "Chat app file compression ruins photo quality"],
+      insights: ["Direct browser camera capture with background Google Drive upload eliminates drop-off while preserving 4K resolution"],
+      opportunityMapping: "Build a lightweight web camera widget with OAuth2 Google Drive streaming."
     },
 
     persona: {
-      name: "Olivia & Ralph, The Newlyweds",
-      quote: "\"We want to see all the candid moments our friends captured without asking everyone to send photos manually after the wedding.\"",
-      goals: ["Gather all guest photos in high resolution", "Manage RSVPs and digital gifts effortlessly"],
-      frustrations: ["Receiving blurry compressed photos on WhatsApp", "Losing track of who uploaded which photo"],
-      needs: ["Direct Google Drive sync vault", "1-Click ZIP download for print albums"],
-      behavior: "Uses mobile and desktop to view the live photo stream during and after the wedding."
+      name: "Olivia & Ralph, Newlyweds",
+      quote: "\"We wanted to see every candid moment captured by our guests without asking everyone to send photos one by one after the wedding.\"",
+      goals: ["Collect all guest photos effortlessly", "Provide a beautiful digital invitation experience"],
+      frustrations: ["Missing candid reception moments", "Downloading compressed images from messaging apps"],
+      needs: ["Automated photo aggregation", "Easy bulk download link"],
+      behavior: "Reviewed uploaded guest photos on their phone immediately after the reception."
     },
 
-    problemStatement: "How might we create a frictionless digital wedding platform that lets guests upload photos live to Google Drive while keeping the memory collection process effortless for the couple?",
+    problemStatement: "How might we enable wedding guests to share high-resolution photos instantly during the reception without installing any applications?",
 
     result: {
       outcome: "Successfully deployed for Olivia & Ralph's wedding with over 450+ high-res guest photos collected live.",
