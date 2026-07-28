@@ -116,7 +116,7 @@ export default function HomeClient({
           {/* User Portrait Image */}
           <div className="w-full h-full relative overflow-hidden flex items-end justify-center pointer-events-auto pb-8">
             <img 
-              src={profile?.imageUrl || "/rakyan_new_profile.jpg"} 
+              src={profile?.imageUrl || "/rakyan_new_profile.jpeg"} 
               className="w-[280px] md:w-[350px] h-[350px] md:h-[450px] object-cover rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-4 border-white/50" 
               alt={profile?.name || "Rakyan"} 
             />
@@ -288,7 +288,7 @@ export default function HomeClient({
           <div className="flex flex-col gap-8">
             <div className="w-full aspect-[4/3] bg-zinc-200 rounded-[2rem] overflow-hidden">
               <img 
-                src={profile?.imageUrl || "/rakyan_new_profile.jpg"} 
+                src={profile?.imageUrl || "/rakyan_new_profile.jpeg"} 
                 alt={`${profile?.name || "Rakyan"} - About Me`} 
                 className="w-full h-full object-cover"
               />
