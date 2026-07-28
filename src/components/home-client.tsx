@@ -228,30 +228,32 @@ export default function HomeClient({
       })()}
 
       {/* Floating Badges & Strategy Text */}
-      <section className="container mx-auto px-4 py-32 flex justify-center items-center relative min-h-[60vh]">
+      <section className="container mx-auto px-4 py-24 md:py-32 flex flex-col justify-center items-center relative md:min-h-[60vh]">
         <div className="max-w-4xl text-center z-10 relative">
-          <p className="font-playfair text-3xl italic text-zinc-400 mb-6">Hello!</p>
-          <h2 className="text-4xl md:text-6xl font-medium leading-tight tracking-tight">
+          <p className="font-playfair text-2xl md:text-3xl italic text-zinc-400 mb-4 md:mb-6">Hello!</p>
+          <h2 className="text-3xl md:text-6xl font-medium leading-snug md:leading-tight tracking-tight px-2 md:px-0">
             focus is on blending clear strategy, thoughtful design, and user empathy to <span className="text-zinc-400">craft experiences that solve real problems</span>
           </h2>
         </div>
 
-        {/* Floating Pills - Positioned Absolutely */}
-        <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute top-20 left-[10%] bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-orange-500" /> Product Design
-        </motion.div>
-        
-        <motion.div animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute top-40 right-[15%] bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-yellow-400" /> Design Systems
-        </motion.div>
+        {/* Floating Pills - Flex on Mobile, Absolute on Desktop */}
+        <div className="flex flex-wrap justify-center gap-3 mt-10 md:mt-0 md:absolute md:top-0 md:left-0 md:w-full md:h-full pointer-events-none">
+          <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative md:absolute md:top-20 md:left-[10%] pointer-events-auto bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-orange-500" /> Product Design
+          </motion.div>
+          
+          <motion.div animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="relative md:absolute md:top-40 md:right-[15%] pointer-events-auto bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-yellow-400" /> Design Systems
+          </motion.div>
 
-        <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute bottom-32 left-[15%] bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-blue-500" /> UX Design
-        </motion.div>
+          <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="relative md:absolute md:bottom-32 md:left-[15%] pointer-events-auto bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-blue-500" /> UX Design
+          </motion.div>
 
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute bottom-20 right-[20%] bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-emerald-500" /> Brand Identity
-        </motion.div>
+          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="relative md:absolute md:bottom-20 md:right-[20%] pointer-events-auto bg-white border border-black/10 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-emerald-500" /> Brand Identity
+          </motion.div>
+        </div>
       </section>
 
       {/* About Me Section */}
