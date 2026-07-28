@@ -126,8 +126,17 @@ export default function HomeClient({
           >
             {/* Avatar group */}
             <div className="flex -space-x-3">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-10 h-10 rounded-full bg-zinc-300 border-2 border-white shadow-sm" />
+              {[
+                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80",
+                "/mdmedia_logo.svg"
+              ].map((img, i) => (
+                <img 
+                  key={i} 
+                  src={img} 
+                  alt="Client Profile" 
+                  className="w-10 h-10 rounded-full bg-white object-cover border-2 border-white shadow-sm" 
+                />
               ))}
             </div>
             <div className="ml-4 text-xs font-medium text-zinc-500 max-w-[160px]">
@@ -165,9 +174,9 @@ export default function HomeClient({
         <div className="flex items-center justify-around flex-wrap gap-8 px-8 opacity-60">
           <span className="text-xl font-bold font-serif text-black">Figma</span>
           <span className="text-xl font-bold tracking-tight text-black">Framer</span>
-          <span className="text-xl font-bold text-black">Laravel</span>
-          <span className="text-xl font-bold font-serif text-black">Fullstack</span>
-          <span className="text-xl font-bold tracking-tighter text-black">Data Science</span>
+          <span className="text-xl font-bold text-black">UI/UX Design</span>
+          <span className="text-xl font-bold font-serif text-black">User Research</span>
+          <span className="text-xl font-bold tracking-tighter text-black">Product Strategy</span>
         </div>
       </section>
 
