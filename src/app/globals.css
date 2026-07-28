@@ -1,15 +1,16 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
+  --background: #fdfcfb;
+  --foreground: #1c1917;
 
-  --card: #ffffff;
-  --card-foreground: #09090b;
+  --card: #fdfcfb;
+  --card-foreground: #1c1917;
 
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
+  --popover: #fdfcfb;
+  --popover-foreground: #1c1917;
 
   --primary: #18181b;
   --primary-foreground: #fafafa;

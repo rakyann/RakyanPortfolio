@@ -88,107 +88,122 @@ const EDUCATIONS = [
 
 export default function About() {
   return (
-    <div className="container mx-auto px-4 md:px-8 py-12 md:py-24 max-w-4xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-          Designing with purpose, building with precision.
-        </h1>
-        <p className="text-xl text-muted-foreground mb-12">
-          Hi, I'm Rakyan Jenar Sakuntala, an outstanding Information Systems student from Telkom University Purwokerto with a deep passion for UI/UX design. I actively participate in prestigious events, competitions, and startup incubations. I leverage diverse industry methodologies to deliver exceptional user experiences, bridging the gap between human needs and business goals.
-        </p>
+    <div className="flex flex-col min-h-screen bg-[#FAFAFA] text-[#111111] font-sans selection:bg-[#BEF264] selection:text-black">
+      <div className="flex-grow container mx-auto px-4 md:px-8 py-12 md:py-24 max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            Designing with purpose, building with precision.
+          </h1>
+          <p className="text-xl text-zinc-600 font-medium mb-12 leading-relaxed">
+            Hi, I'm Rakyan Jenar Sakuntala, an outstanding Information Systems student from Telkom University Purwokerto with a deep passion for UI/UX design. I actively participate in prestigious events, competitions, and startup incubations. I leverage diverse industry methodologies to deliver exceptional user experiences, bridging the gap between human needs and business goals.
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div className="p-6 rounded-2xl bg-muted/50 border border-border">
-            <Brain className="w-8 h-8 mb-4 text-foreground" />
-            <h3 className="text-xl font-semibold mb-2">Systems Thinker</h3>
-            <p className="text-muted-foreground">
-              I look beyond isolated screens. I design scalable systems and component libraries that ensure consistency and speed up development.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl bg-muted/50 border border-border">
-            <Lightbulb className="w-8 h-8 mb-4 text-foreground" />
-            <h3 className="text-xl font-semibold mb-2">Problem Solver</h3>
-            <p className="text-muted-foreground">
-              I dive deep into user research and data to uncover core issues, avoiding assumptions to deliver solutions that actually work.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl bg-muted/50 border border-border">
-            <Users className="w-8 h-8 mb-4 text-foreground" />
-            <h3 className="text-xl font-semibold mb-2">Collaborator</h3>
-            <p className="text-muted-foreground">
-              Design is a team sport. I work closely with PMs to align on strategy and speak the same language as engineers for seamless handoffs.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl bg-muted/50 border border-border">
-            <Code className="w-8 h-8 mb-4 text-foreground" />
-            <h3 className="text-xl font-semibold mb-2">Technical Empathy</h3>
-            <p className="text-muted-foreground">
-              With a background in Software Engineering and Information Systems, I design with feasibility in mind, ensuring my prototypes translate flawlessly into code.
-            </p>
-          </div>
-        </div>
-
-        <h2 className="text-3xl font-bold tracking-tight mb-8">My Skillset</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {Object.entries(SKILLS).map(([category, skills]) => (
-            <div key={category}>
-              <h3 className="font-semibold text-lg mb-4 text-foreground">{category}</h3>
-              <ul className="flex flex-col gap-2">
-                {skills.map((skill) => (
-                  <li key={skill} className="text-muted-foreground flex items-center gap-2 text-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-border" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-sm">
+              <Brain className="w-8 h-8 mb-4 text-[#111111]" />
+              <h3 className="text-xl font-semibold mb-2">Systems Thinker</h3>
+              <p className="text-zinc-600 text-sm">
+                I look beyond isolated screens. I design scalable systems and component libraries that ensure consistency and speed up development.
+              </p>
             </div>
-          ))}
-        </div>
+            <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-sm">
+              <Lightbulb className="w-8 h-8 mb-4 text-[#111111]" />
+              <h3 className="text-xl font-semibold mb-2">Problem Solver</h3>
+              <p className="text-zinc-600 text-sm">
+                I dive deep into user research and data to uncover core issues, avoiding assumptions to deliver solutions that actually work.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-sm">
+              <Users className="w-8 h-8 mb-4 text-[#111111]" />
+              <h3 className="text-xl font-semibold mb-2">Collaborator</h3>
+              <p className="text-zinc-600 text-sm">
+                Design is a team sport. I work closely with PMs to align on strategy and speak the same language as engineers for seamless handoffs.
+              </p>
+            </div>
+            <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-sm">
+              <Code className="w-8 h-8 mb-4 text-[#111111]" />
+              <h3 className="text-xl font-semibold mb-2">Technical Empathy</h3>
+              <p className="text-zinc-600 text-sm">
+                With a background in Software Engineering and Information Systems, I design with feasibility in mind, ensuring my prototypes translate flawlessly into code.
+              </p>
+            </div>
+          </div>
 
-        <h2 className="text-3xl font-bold tracking-tight mb-8">Experience</h2>
-        <div className="flex flex-col gap-10 mb-20">
-          {EXPERIENCES.map((exp, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8 group">
-              <div className="w-48 text-muted-foreground font-mono text-sm shrink-0 md:pt-1">
-                {exp.period}
-              </div>
-              <div>
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{exp.role}</h3>
-                <p className="text-muted-foreground mt-1 font-medium">{exp.company}</p>
-                <ul className="mt-4 text-foreground/80 leading-relaxed flex flex-col gap-2 list-disc pl-4 marker:text-muted-foreground">
-                  {exp.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
+          <h2 className="text-3xl font-bold tracking-tight mb-8">My Skillset</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            {Object.entries(SKILLS).map(([category, skills]) => (
+              <div key={category}>
+                <h3 className="font-semibold text-lg mb-4 text-[#111111]">{category}</h3>
+                <ul className="flex flex-col gap-2">
+                  {skills.map((skill) => (
+                    <li key={skill} className="text-zinc-600 flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
+                      {skill}
+                    </li>
                   ))}
                 </ul>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <h2 className="text-3xl font-bold tracking-tight mb-8">Education</h2>
-        <div className="flex flex-col gap-8">
-          {EDUCATIONS.map((edu, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8">
-              <div className="w-48 text-muted-foreground font-mono text-sm shrink-0 md:pt-1">
-                {edu.period}
+          <h2 className="text-3xl font-bold tracking-tight mb-8">Experience</h2>
+          <div className="flex flex-col gap-10 mb-20">
+            {EXPERIENCES.map((exp, index) => (
+              <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8 group">
+                <div className="w-48 text-zinc-400 font-mono text-sm shrink-0 md:pt-1">
+                  {exp.period}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold group-hover:text-[#88c226] transition-colors">{exp.role}</h3>
+                  <p className="text-zinc-500 mt-1 font-medium">{exp.company}</p>
+                  <ul className="mt-4 text-zinc-700 leading-relaxed flex flex-col gap-2 list-disc pl-4 marker:text-zinc-400 text-sm">
+                    {exp.details.map((detail, i) => (
+                      <li key={i}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold">{edu.degree}</h3>
-                <p className="text-muted-foreground mt-1 font-medium">{edu.school}</p>
-                {edu.details && (
-                  <p className="mt-2 text-foreground/80 leading-relaxed text-sm">
-                    {edu.details}
-                  </p>
-                )}
+            ))}
+          </div>
+
+          <h2 className="text-3xl font-bold tracking-tight mb-8">Education</h2>
+          <div className="flex flex-col gap-8">
+            {EDUCATIONS.map((edu, index) => (
+              <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-8">
+                <div className="w-48 text-zinc-400 font-mono text-sm shrink-0 md:pt-1">
+                  {edu.period}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">{edu.degree}</h3>
+                  <p className="text-zinc-500 mt-1 font-medium">{edu.school}</p>
+                  {edu.details && (
+                    <p className="mt-2 text-zinc-600 leading-relaxed text-sm">
+                      {edu.details}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Full Dedicated Brand Footer */}
+      <footer className="w-full bg-white border-t border-black/5 py-12 mt-24">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="font-bold text-2xl tracking-tighter">Rakyan.</div>
+          <div className="flex gap-6 text-sm font-medium text-zinc-500">
+            <a href="https://github.com/rkyan22" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">GitHub</a>
+            <a href="mailto:rkyan22@gmail.com" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Email</a>
+            <a href="https://linkedin.com/in/rakyan" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
+          </div>
+          <p className="text-xs text-zinc-400">© 2026 Rakyan. All rights reserved.</p>
         </div>
-      </motion.div>
+      </footer>
     </div>
   );
 }

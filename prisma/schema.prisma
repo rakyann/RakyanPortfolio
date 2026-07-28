@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+  name      String
+  role      String?
+  content   String   @db.Text
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  platform  String   // e.g., "Instagram", "Email", "LinkedIn"
+  url       String
+  icon      String?  // e.g., lucide icon name like "Instagram"
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String   @db.Text
+  content     String?  @db.LongText
+  image       String?
+  link        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Profile {
+  id              Int      @id @default(1)
+  name            String   @default("Rakyan")
+  role            String   @default("Product Designer")
+  heroDescription String   @db.Text
+  aboutHeader     String   @default("A Deep Dive into My Life's Experiences and Lessons Learned")
+  aboutText1      String   @db.Text
+  aboutText2      String   @db.Text
+  imageUrl        String   @default("/rakyanfotonih.png")
+  updatedAt       DateTime @updatedAt
+}
