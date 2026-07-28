@@ -177,32 +177,40 @@ export default function HomeClient({
         return (
           <section id="recent-works" className="container mx-auto px-4 md:px-8 py-24">
             <div className="w-full bg-[#BEF264] rounded-[2rem] md:rounded-[3rem] p-4 md:p-8 relative">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                {/* Top Left Large Image */}
-                <div className="md:col-span-7 bg-black/10 rounded-2xl md:rounded-[2rem] aspect-[4/3] md:aspect-auto overflow-hidden relative group">
-                  <img 
-                    src="/gani_header.png" 
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
-                    alt={ganiFeatured?.title || "CV Gani Pranata Consulting"} 
-                  />
-                </div>
-                {/* Top Right Grid */}
-                <div className="md:col-span-5 grid grid-rows-2 gap-4">
-                  <div className="bg-black/10 rounded-2xl md:rounded-[2rem] p-6 md:p-8 flex items-end">
-                    <h3 className="text-2xl md:text-3xl font-playfair italic font-medium leading-tight text-[#111111]">
-                      {ganiFeatured?.title || "CV Gani Pranata - Smart Psychology & HR Platform"}
-                    </h3>
+              <Link 
+                href={ganiFeatured?.id ? `/work/${ganiFeatured.id}` : "/work/1"}
+                className="block group relative z-10"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  {/* Top Left Large Image */}
+                  <div className="md:col-span-7 bg-black/10 rounded-2xl md:rounded-[2rem] aspect-[4/3] md:aspect-auto overflow-hidden relative">
+                    <img 
+                      src="/gani_header.png" 
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
+                      alt={ganiFeatured?.title || "CV Gani Pranata Consulting"} 
+                    />
                   </div>
-                  <div className="bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-8 relative overflow-hidden flex flex-col justify-center">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#88c226] mb-1">Featured Case Study</span>
-                    <h3 className="text-xl font-bold text-[#111111] line-clamp-2">
-                      {ganiFeatured?.description || "AI-Powered Tele-Psychology & Real-Time Consultation Engine"}
-                    </h3>
+                  {/* Top Right Grid */}
+                  <div className="md:col-span-5 grid grid-rows-2 gap-4">
+                    <div className="bg-black/10 rounded-2xl md:rounded-[2rem] p-6 md:p-8 flex items-end">
+                      <h3 className="text-2xl md:text-3xl font-playfair italic font-medium leading-tight text-[#111111] group-hover:underline">
+                        {ganiFeatured?.title || "CV Gani Pranata - Smart Psychology & HR Platform"}
+                      </h3>
+                    </div>
+                    <div className="bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-8 relative overflow-hidden flex flex-col justify-center">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#88c226] mb-1">Featured Case Study</span>
+                      <h3 className="text-xl font-bold text-[#111111] line-clamp-2">
+                        {ganiFeatured?.description || "Smart Tele-Psychology & Real-Time Consultation Engine"}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
               
-              <Link href={ganiFeatured ? `/work/${ganiFeatured.id}` : "/work/1"} className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-8 py-3 rounded-full shadow-2xl font-bold text-sm whitespace-nowrap hover:scale-105 transition-transform flex items-center gap-2">
+              <Link 
+                href={ganiFeatured?.id ? `/work/${ganiFeatured.id}` : "/work/1"} 
+                className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-40 bg-black text-white px-8 py-3.5 rounded-full shadow-2xl font-bold text-sm whitespace-nowrap hover:scale-105 transition-transform flex items-center gap-2 cursor-pointer border border-white/20"
+              >
                 Read Case Study <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
