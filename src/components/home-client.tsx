@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Menu, X, User } from "lucide-react";
 import { FadeIn, RevealText } from "@/components/ui/animations";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { InvestmentPlans } from "@/components/investment-plans";
@@ -20,12 +20,31 @@ export default function HomeClient({
   contacts: any[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavHidden, setIsNavHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setIsNavHidden(true);
+    } else {
+      setIsNavHidden(false);
+    }
+  });
 
   return (
     <div className="flex flex-col bg-[#FAFAFA] text-[#111111] min-h-screen font-sans selection:bg-[#BEF264] selection:text-black">
       
       {/* Custom Navbar for this specific design (overriding default layout navbar) */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 pointer-events-none">
+      <motion.nav 
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={isNavHidden ? "hidden" : "visible"}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 pointer-events-none"
+      >
         <div className="font-bold text-2xl tracking-tighter pointer-events-auto">Rakyan.</div>
         
         {/* Dummy Badge */}
@@ -40,7 +59,7 @@ export default function HomeClient({
         >
           {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
-      </nav>
+      </motion.nav>
 
       {/* Dropdown Navigation Menu */}
       <AnimatePresence>
@@ -92,7 +111,7 @@ export default function HomeClient({
           initial={{ opacity: 0, scale: 0.9, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] md:w-[600px] h-[500px] md:h-[700px] z-20 pointer-events-none"
+          className="absolute bottom-12 md:bottom-0 left-1/2 -translate-x-1/2 w-[90%] md:w-[600px] h-[400px] md:h-[700px] z-20 pointer-events-none"
         >
           {/* User Portrait Image */}
           <div className="w-full h-full relative overflow-hidden flex items-end justify-center pointer-events-auto pb-8">
@@ -105,7 +124,7 @@ export default function HomeClient({
         </motion.div>
 
         {/* Floating Elements (Z-index above image) */}
-        <div className="absolute top-[35%] md:top-[60%] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-24 z-30 w-max max-w-[90vw]">
+        <div className="absolute top-[25%] md:top-[60%] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-24 z-30 w-max max-w-[90vw]">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -126,18 +145,16 @@ export default function HomeClient({
           >
             {/* Avatar group */}
             <div className="flex -space-x-3">
-              {[
-                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80",
-                "/mdmedia_logo.svg"
-              ].map((img, i) => (
-                <img 
-                  key={i} 
-                  src={img} 
-                  alt="Client Profile" 
-                  className="w-10 h-10 rounded-full bg-white object-cover border-2 border-white shadow-sm" 
-                />
+              {[1, 2].map((i) => (
+                <div key={i} className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center border-2 border-white shadow-sm">
+                  <User className="w-5 h-5 text-zinc-400" />
+                </div>
               ))}
+              <img 
+                src="/mdmedia_logo.svg" 
+                alt="Client Logo" 
+                className="w-10 h-10 rounded-full bg-white object-cover border-2 border-white shadow-sm" 
+              />
             </div>
             <div className="ml-2 md:ml-4 text-xs font-medium text-zinc-600 md:text-zinc-500 max-w-[140px] md:max-w-[160px] leading-tight md:leading-normal pr-2 md:pr-0">
               Trusted by <strong className="text-black">select brands & clients</strong> for high-impact digital solutions.
@@ -192,7 +209,7 @@ export default function HomeClient({
               >
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                   {/* Top Left Large Image */}
-                  <div className="md:col-span-7 bg-black/10 rounded-2xl md:rounded-[2rem] aspect-[4/3] md:aspect-auto overflow-hidden relative">
+                  <div className="md:col-span-7 bg-black/10 rounded-2xl md:rounded-[2rem] min-h-[200px] md:min-h-[400px] flex overflow-hidden relative">
                     <img 
                       src="/gani_header.png" 
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" 
@@ -202,7 +219,7 @@ export default function HomeClient({
                   {/* Top Right Grid */}
                   <div className="md:col-span-5 grid grid-rows-2 gap-4">
                     <div className="bg-black/10 rounded-2xl md:rounded-[2rem] p-6 md:p-8 flex items-end">
-                      <h3 className="text-2xl md:text-3xl font-playfair italic font-medium leading-tight text-[#111111] group-hover:underline">
+                      <h3 className="text-xl md:text-3xl font-playfair italic font-medium leading-tight text-[#111111] group-hover:underline">
                         {ganiFeatured?.title || "CV Gani Pranata - Smart Psychology & HR Platform"}
                       </h3>
                     </div>
@@ -344,10 +361,12 @@ export default function HomeClient({
               <div key={t.id} className={`flex flex-col gap-6 ${idx % 2 !== 0 ? 'md:mt-24' : ''}`}>
                 <p className="text-lg font-medium leading-relaxed">"{t.content}"</p>
                 <div className="flex items-center gap-3">
-                  {t.imageUrl ? (
+                  {t.imageUrl && !t.imageUrl.includes("unsplash.com") ? (
                     <img src={t.imageUrl} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-zinc-200" />
+                    <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center border border-black/10">
+                      <User className="w-5 h-5 text-zinc-400" />
+                    </div>
                   )}
                   <div>
                     <p className="font-bold text-sm">{t.name}</p>
@@ -391,7 +410,7 @@ export default function HomeClient({
       </section>
 
       {/* Investment Plans Section */}
-      <InvestmentPlans />
+      {/* <InvestmentPlans /> */}
 
       {/* Simple Footer */}
       <footer id="footer" className="w-full bg-white border-t border-black/5 py-12">

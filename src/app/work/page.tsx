@@ -87,7 +87,7 @@ export default async function WorkPage() {
       </main>
 
       {/* Investment Plans Section */}
-      <InvestmentPlans />
+      {/* <InvestmentPlans /> */}
 
       {/* Full Dedicated Footer */}
       <footer className="w-full bg-white border-t border-black/5 py-12 mt-24">
