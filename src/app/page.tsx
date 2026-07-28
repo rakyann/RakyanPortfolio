@@ -29,9 +29,9 @@ const STATIC_TESTIMONIALS = [
 ];
 
 const STATIC_CONTACTS = [
-  { id: 1, platform: "GitHub", url: "https://github.com/rkyan22" },
+  { id: 1, platform: "GitHub", url: "https://github.com/rakyann" },
   { id: 2, platform: "Email", url: "mailto:rkyan22@gmail.com" },
-  { id: 3, platform: "LinkedIn", url: "https://linkedin.com/in/rakyan" },
+  { id: 3, platform: "LinkedIn", url: "https://www.linkedin.com/in/rakyan-sakuntala-9a9841219/" },
 ];
 
 export default async function Page() {

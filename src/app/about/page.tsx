@@ -197,9 +197,9 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="font-bold text-2xl tracking-tighter">Rakyan.</div>
           <div className="flex gap-6 text-sm font-medium text-zinc-500">
-            <a href="https://github.com/rkyan22" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">GitHub</a>
+            <a href="https://github.com/rakyann" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">GitHub</a>
             <a href="mailto:rkyan22@gmail.com" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Email</a>
-            <a href="https://linkedin.com/in/rakyan" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/rakyan-sakuntala-9a9841219/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
           </div>
           <p className="text-xs text-zinc-400">© 2026 Rakyan. All rights reserved.</p>
         </div>
