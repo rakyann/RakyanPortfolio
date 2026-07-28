@@ -249,7 +249,7 @@ export default function HomeClient({
         <div className="max-w-4xl text-center z-10 relative">
           <p className="font-playfair text-2xl md:text-3xl italic text-zinc-400 mb-4 md:mb-6">Hello!</p>
           <h2 className="text-3xl md:text-6xl font-medium leading-snug md:leading-tight tracking-tight px-2 md:px-0">
-            focus is on blending clear strategy, thoughtful design, and user empathy to <span className="text-zinc-400">craft experiences that solve real problems</span>
+            I focus on blending clear strategy, thoughtful design, and user empathy to <span className="text-zinc-400">craft experiences that solve real problems</span>
           </h2>
         </div>
 
