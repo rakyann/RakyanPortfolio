@@ -1,10 +1,17 @@
 import prisma from "@/lib/prisma";
 import { createContact, deleteContact } from "./actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function ContactsPage() {
-  const contacts = await prisma.contact.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let contacts: any[] = [];
+  try {
+    contacts = await prisma.contact.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.warn("Prisma fetch failed in ContactsPage:", error);
+  }
 
   return (
     <div className="space-y-8">

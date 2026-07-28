@@ -1,10 +1,17 @@
 import prisma from "@/lib/prisma";
 import { createTestimonial, deleteTestimonial } from "./actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function TestimonialsPage() {
-  const testimonials = await prisma.testimonial.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let testimonials: any[] = [];
+  try {
+    testimonials = await prisma.testimonial.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.warn("Prisma fetch failed in TestimonialsPage:", error);
+  }
 
   return (
     <div className="space-y-8">

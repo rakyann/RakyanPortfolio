@@ -10,10 +10,20 @@ const quotes = [
   "Design creates culture. Culture shapes values. Values determine the future. – Robert L. Peters"
 ];
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
-  const testimonialsCount = await prisma.testimonial.count();
-  const contactsCount = await prisma.contact.count();
-  const projectsCount = await prisma.project.count();
+  let testimonialsCount = 0;
+  let contactsCount = 0;
+  let projectsCount = 0;
+
+  try {
+    testimonialsCount = await prisma.testimonial.count();
+    contactsCount = await prisma.contact.count();
+    projectsCount = await prisma.project.count();
+  } catch (error) {
+    console.warn("Prisma fetch failed in AdminDashboard:", error);
+  }
   
   // Pick a quote based on the current day of the week
   const today = new Date().getDay();

@@ -2,10 +2,17 @@ import prisma from "@/lib/prisma";
 import { createProject, deleteProject } from "./actions";
 import InlineUploader from "./InlineUploader";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProjectsPage() {
-  const projects = await prisma.project.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let projects: any[] = [];
+  try {
+    projects = await prisma.project.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.warn("Prisma fetch failed in ProjectsPage:", error);
+  }
 
   return (
     <div className="space-y-8">

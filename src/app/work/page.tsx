@@ -4,12 +4,17 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { PROJECTS } from "@/data/projects";
 import { InvestmentPlans } from "@/components/investment-plans";
 
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function WorkPage() {
-  const dbProjects = await prisma.project.findMany({
-    orderBy: { createdAt: "asc" },
-  });
+  let dbProjects: any[] = [];
+  try {
+    dbProjects = await prisma.project.findMany({
+      orderBy: { createdAt: "asc" },
+    });
+  } catch (error) {
+    console.warn("Prisma fetch failed in WorkPage:", error);
+  }
 
   const displayProjects = dbProjects.length > 0 ? dbProjects : PROJECTS.map((p, i) => ({
     id: p.slug,

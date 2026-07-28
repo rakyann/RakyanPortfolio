@@ -5,15 +5,20 @@ import { ArrowLeft, ExternalLink, Calendar, User, Wrench, Layers, ArrowRight, Sp
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/data/projects";
 
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> | { id: string } }) {
   const resolvedParams = await params;
   const idOrSlug = resolvedParams.id;
 
-  const allDbProjects = await prisma.project.findMany({
-    orderBy: { createdAt: "asc" },
-  });
+  let allDbProjects: any[] = [];
+  try {
+    allDbProjects = await prisma.project.findMany({
+      orderBy: { createdAt: "asc" },
+    });
+  } catch (error) {
+    console.warn("Prisma fetch failed in ProjectDetailPage:", error);
+  }
 
   let project: any = null;
   const projectId = parseInt(idOrSlug, 10);

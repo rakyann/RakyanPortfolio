@@ -1,8 +1,15 @@
 import prisma from "@/lib/prisma";
 import { updateProfile } from "./actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProfilePage() {
-  const profile = await prisma.profile.findUnique({ where: { id: 1 } });
+  let profile: any = null;
+  try {
+    profile = await prisma.profile.findUnique({ where: { id: 1 } });
+  } catch (error) {
+    console.warn("Prisma fetch failed in ProfilePage:", error);
+  }
   
   if (!profile) return <div>Profile not found. Seed the DB first.</div>;
 
