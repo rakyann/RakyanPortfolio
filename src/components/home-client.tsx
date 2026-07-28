@@ -130,8 +130,8 @@ export default function HomeClient({
                 <div key={i} className="w-10 h-10 rounded-full bg-zinc-300 border-2 border-white shadow-sm" />
               ))}
             </div>
-            <div className="ml-4 text-xs font-medium text-zinc-500 max-w-[140px]">
-              Trusted by over <strong className="text-black">1200+ happy clients</strong> across residential and commercial projects.
+            <div className="ml-4 text-xs font-medium text-zinc-500 max-w-[160px]">
+              Trusted by <strong className="text-black">select brands & clients</strong> for high-impact digital solutions.
             </div>
           </motion.div>
         </div>
