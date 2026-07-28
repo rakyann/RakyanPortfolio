@@ -73,7 +73,7 @@ export default function HomeClient({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[12vw] md:text-[8rem] font-medium leading-[0.9] tracking-tighter"
+            className="text-6xl sm:text-[12vw] md:text-[8rem] font-medium leading-[0.9] tracking-tighter"
           >
             Hi I'm {profile?.name || "Rakyan"}
           </motion.h1>
@@ -81,7 +81,7 @@ export default function HomeClient({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-[12vw] md:text-[9rem] font-playfair italic leading-[0.9] tracking-tight relative z-30 mix-blend-overlay text-black/80"
+            className="text-5xl sm:text-[12vw] md:text-[9rem] font-playfair italic leading-[0.9] tracking-tight relative z-30 mix-blend-overlay text-black/80 mt-2 md:mt-0"
           >
             {profile?.role || "Product Designer"}
           </motion.h1>
@@ -105,24 +105,24 @@ export default function HomeClient({
         </motion.div>
 
         {/* Floating Elements (Z-index above image) */}
-        <div className="absolute top-[50%] md:top-[60%] left-4 md:left-24 z-30">
+        <div className="absolute top-[35%] md:top-[60%] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-24 z-30 w-max max-w-[90vw]">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1 }}
-            className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-black/5"
+            className="flex items-center gap-2 px-4 py-2 bg-white/80 md:bg-white backdrop-blur-md md:backdrop-blur-none rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-black/5"
           >
             <span className="w-3 h-3 rounded-full bg-[#BEF264] animate-pulse shadow-[0_0_10px_#BEF264]" />
             <span className="text-sm font-semibold">Available for new opportunities</span>
           </motion.div>
         </div>
 
-        <div className="absolute bottom-20 left-4 md:left-24 z-30 hidden md:flex items-center gap-4">
+        <div className="absolute bottom-6 md:bottom-20 left-4 md:left-24 z-30 flex items-center gap-4 scale-75 md:scale-100 origin-bottom-left">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="flex items-center"
+            className="flex items-center bg-white/80 md:bg-transparent p-2 md:p-0 rounded-full md:rounded-none backdrop-blur-md md:backdrop-blur-none"
           >
             {/* Avatar group */}
             <div className="flex -space-x-3">
@@ -139,7 +139,7 @@ export default function HomeClient({
                 />
               ))}
             </div>
-            <div className="ml-4 text-xs font-medium text-zinc-500 max-w-[160px]">
+            <div className="ml-2 md:ml-4 text-xs font-medium text-zinc-600 md:text-zinc-500 max-w-[140px] md:max-w-[160px] leading-tight md:leading-normal pr-2 md:pr-0">
               Trusted by <strong className="text-black">select brands & clients</strong> for high-impact digital solutions.
             </div>
           </motion.div>
@@ -156,7 +156,7 @@ export default function HomeClient({
           </motion.p>
         </div>
 
-        <div className="absolute bottom-10 md:bottom-32 right-4 md:right-24 z-30">
+        <div className="absolute bottom-6 md:bottom-32 right-4 md:right-24 z-30 scale-75 md:scale-100 origin-bottom-right">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -170,13 +170,13 @@ export default function HomeClient({
       </section>
 
       {/* Tech Stack / Skills Strip */}
-      <section className="w-full py-12 border-b border-black/5 overflow-hidden bg-white z-20 relative">
-        <div className="flex items-center justify-around flex-wrap gap-8 px-8 opacity-60">
-          <span className="text-xl font-bold font-serif text-black">Figma</span>
-          <span className="text-xl font-bold tracking-tight text-black">Framer</span>
-          <span className="text-xl font-bold text-black">UI/UX Design</span>
-          <span className="text-xl font-bold font-serif text-black">User Research</span>
-          <span className="text-xl font-bold tracking-tighter text-black">Product Strategy</span>
+      <section className="w-full py-8 md:py-12 border-b border-black/5 overflow-hidden bg-white z-20 relative">
+        <div className="flex items-center justify-center md:justify-around flex-wrap gap-4 md:gap-8 px-4 md:px-8 opacity-60">
+          <span className="text-base md:text-xl font-bold font-serif text-black">Figma</span>
+          <span className="text-base md:text-xl font-bold tracking-tight text-black">Framer</span>
+          <span className="text-base md:text-xl font-bold text-black">UI/UX Design</span>
+          <span className="text-base md:text-xl font-bold font-serif text-black">User Research</span>
+          <span className="text-base md:text-xl font-bold tracking-tighter text-black">Product Strategy</span>
         </div>
       </section>
 
