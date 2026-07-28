@@ -282,6 +282,14 @@ export const PROJECTS: Project[] = [
   }
 ];
 
-export function getProjectBySlug(slug: string) {
-  return PROJECTS.find((p) => p.slug === slug);
+export function getProjectBySlug(slugOrId: string) {
+  if (slugOrId === "1" || slugOrId === "gani-consulting") return PROJECTS.find((p) => p.slug === "gani-consulting");
+  if (slugOrId === "2" || slugOrId === "mdmedia-portal") return PROJECTS.find((p) => p.slug === "mdmedia-portal");
+  if (slugOrId === "3" || slugOrId === "olivia-ralph-wedding") return PROJECTS.find((p) => p.slug === "olivia-ralph-wedding");
+  if (slugOrId === "4" || slugOrId === "dam-studio-3d") return PROJECTS.find((p) => p.slug === "dam-studio-3d");
+  const idx = parseInt(slugOrId, 10);
+  if (!isNaN(idx) && idx >= 1 && idx <= PROJECTS.length) {
+    return PROJECTS[idx - 1];
+  }
+  return PROJECTS.find((p) => p.slug === slugOrId);
 }

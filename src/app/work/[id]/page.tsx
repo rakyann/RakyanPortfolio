@@ -31,16 +31,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   if (!project) {
     const staticProject = getProjectBySlug(idOrSlug);
     if (staticProject) {
+      let fullImage = "/gani_hero.png";
+      if (staticProject.slug === "mdmedia-portal") fullImage = "/mdmedia_figma.png";
+      if (staticProject.slug === "olivia-ralph-wedding") fullImage = "/wedding_invitation.png";
+      if (staticProject.slug === "dam-studio-3d") fullImage = "/dam_studio.png";
+
       project = {
         id: staticProject.slug,
         title: staticProject.title,
         description: staticProject.description,
-        image: staticProject.heroImage || "/gani_header.png",
+        image: fullImage,
         link: "http://127.0.0.1:8000",
         createdAt: new Date(),
         content: `
-![Full Page Showcase](/gani_hero.png)
-
 # ${staticProject.title}
 
 > **${staticProject.description}**
@@ -58,12 +61,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
 ### 💡 Background & Core Challenge
 ${staticProject.background.why}
-
-* **Business Problem:** ${staticProject.background.businessProblem}
-* **User Problem:** ${staticProject.background.userProblem}
-* **Opportunity:** ${staticProject.background.opportunity}
-
----
 
 ### 🎯 Key Goals & Success Metrics
 * **Business Goals:** ${staticProject.goals.business.join("; ")}
