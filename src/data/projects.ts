@@ -116,60 +116,6 @@ export const PROJECTS: Project[] = [
     }
   },
   {
-    slug: "sobatahli",
-    title: "SobatAhli Platform",
-    category: "Mobile App / SaaS",
-    description: "Creating an intuitive expert consultation platform connecting professionals with tailored advice efficiently.",
-    color: "from-orange-500/10 to-red-500/10",
-    
-    overview: {
-      what: "Mobile application connecting users with certified experts for quick consultations.",
-      role: "Product Designer",
-      timeline: "Agustus 2022 - September 2024",
-      team: "Cross-functional team",
-      tools: ["Figma", "Whimsical"],
-      deliverables: ["Mobile App UI", "User Flows", "Interactive Prototype"]
-    },
-
-    background: {
-      why: "There was a gap in the market for immediate, verified professional advice.",
-      businessProblem: "Low conversion rate on existing consultation booking platforms.",
-      userProblem: "Users couldn't easily verify the credibility of experts before paying.",
-      opportunity: "Introduce a transparent rating system and seamless booking flow."
-    },
-
-    goals: {
-      business: ["Achieve 10,000 monthly active users", "Increase booking conversion rate by 15%"],
-      user: ["Easily find and book a credible expert within 5 minutes"],
-      metrics: ["Conversion Rate", "User Retention", "Net Promoter Score (NPS)"]
-    },
-
-    research: {
-      methodology: "Competitive Analysis, User Interviews",
-      painPoints: ["Hard to compare experts", "Uncertainty about pricing"],
-      insights: ["Users want to see reviews upfront", "Scheduling is the biggest friction point"],
-      opportunityMapping: "Integrate a robust calendar sync and verified badge system."
-    },
-
-    persona: {
-      name: "Siti, Small Business Owner",
-      quote: "\"I need legal advice fast, but I don't want to pay high retainer fees.\"",
-      goals: ["Get quick answers to specific business questions"],
-      frustrations: ["Finding lawyers takes too much time"],
-      needs: ["Clear pricing", "Verified credentials"],
-      behavior: "Prefers video calls for consultations."
-    },
-
-    problemStatement: "How might we create a platform that builds trust and simplifies the scheduling process between users and experts?",
-
-    result: {
-      outcome: "Platform successfully facilitated over 5,000 consultations in the first year.",
-      businessImpact: "Increased website traffic and booking conversions significantly.",
-      userImpact: "Users found the booking process 3x faster compared to traditional methods.",
-      reflection: "Simplifying the calendar interface was the key to unlocking higher conversion rates."
-    }
-  },
-  {
     slug: "gani-consulting",
     title: "CV Gani Pranata - Psychology & HR Platform (Ongoing)",
     category: "Corporate Tele-Health Platform (Ongoing)",
