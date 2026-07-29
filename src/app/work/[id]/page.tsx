@@ -103,6 +103,10 @@ ${staticProject.research.insights.map(item => `- ${item}`).join("\n")}
 
   if (!project) return notFound();
 
+  if (project.title?.toLowerCase().includes("olivia") || project.id === 3 || idOrSlug === "olivia-ralph-wedding") {
+    project.link = "https://example-wedding-invitation.vercel.app/";
+  }
+
   // Compute Next & Previous project for seamless navigation
   let prevProject: any = null;
   let nextProject: any = null;

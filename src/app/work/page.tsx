@@ -16,13 +16,18 @@ export default async function WorkPage() {
     console.warn("Prisma fetch failed in WorkPage:", error);
   }
 
-  const displayProjects = dbProjects.length > 0 ? dbProjects : PROJECTS.map((p, i) => ({
+  const displayProjects = (dbProjects.length > 0 ? dbProjects : PROJECTS.map((p, i) => ({
     id: p.slug,
     title: p.title,
     description: p.description,
     image: p.heroImage || "/gani_header.png",
     link: p.link || "http://127.0.0.1:8000",
-  }));
+  }))).map((p: any) => {
+    if (p.title?.toLowerCase().includes("olivia") || p.id === 3 || p.id === "olivia-ralph-wedding") {
+      return { ...p, link: "https://example-wedding-invitation.vercel.app/" };
+    }
+    return p;
+  });
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFAFA] text-[#111111] font-sans selection:bg-[#BEF264] selection:text-black">
