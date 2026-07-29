@@ -41,7 +41,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         title: staticProject.title,
         description: staticProject.description,
         image: fullImage,
-        link: "http://127.0.0.1:8000",
+        link: staticProject.link || "http://127.0.0.1:8000",
         createdAt: new Date(),
         content: `
 # ${staticProject.title}

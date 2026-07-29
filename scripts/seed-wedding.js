@@ -5,7 +5,7 @@ const weddingProject = {
   title: 'Olivia & Ralph - Interactive Wedding Platform & Live Guest Camera',
   description: 'Interactive digital wedding invitation platform featuring real-time RSVP management, digital angpao/gift registry, and an automated Google Drive Live Guest Camera integration allowing wedding guests to upload photos live and the couple to download all high-resolution memories in bulk.',
   image: '/wedding_invitation.png',
-  link: 'http://127.0.0.1:8000',
+  link: 'https://example-wedding-invitation.vercel.app/',
   content: `
 # Case Study: Olivia & Ralph Interactive Wedding Platform & Live Guest Camera
 

@@ -5,6 +5,7 @@ export type Project = {
   description: string;
   color: string;
   heroImage?: string;
+  link?: string;
   
   // 1. Overview
   overview: {
@@ -176,6 +177,7 @@ export const PROJECTS: Project[] = [
     description: "Interactive digital wedding invitation platform featuring real-time RSVP management, digital angpao/gift registry, and an automated Google Drive Live Guest Camera integration allowing wedding guests to upload photos live and the couple to download all high-resolution memories in bulk.",
     color: "from-blue-600/10 to-amber-500/10",
     heroImage: "/wedding_invitation.png",
+    link: "https://example-wedding-invitation.vercel.app/",
     
     overview: {
       what: "Digital wedding invitation platform for Gratia Wedding Organizer Purwokerto with Google Drive Live Guest Camera photo syncing.",

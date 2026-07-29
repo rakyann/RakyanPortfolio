@@ -21,7 +21,7 @@ export default async function WorkPage() {
     title: p.title,
     description: p.description,
     image: p.heroImage || "/gani_header.png",
-    link: "http://127.0.0.1:8000",
+    link: p.link || "http://127.0.0.1:8000",
   }));
 
   return (

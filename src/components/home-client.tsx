@@ -111,7 +111,7 @@ export default function HomeClient({
           initial={{ opacity: 0, scale: 0.9, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="absolute bottom-12 md:bottom-0 left-1/2 -translate-x-1/2 w-[90%] md:w-[600px] h-[400px] md:h-[700px] z-20 pointer-events-none"
+          className="absolute bottom-28 md:bottom-0 left-1/2 -translate-x-1/2 w-[90%] md:w-[600px] h-[350px] md:h-[700px] z-20 pointer-events-none"
         >
           {/* User Portrait Image */}
           <div className="w-full h-full relative overflow-hidden flex items-end justify-center pointer-events-auto pb-8">
@@ -136,12 +136,12 @@ export default function HomeClient({
           </motion.div>
         </div>
 
-        <div className="absolute bottom-6 md:bottom-20 left-4 md:left-24 z-30 flex items-center gap-4 scale-75 md:scale-100 origin-bottom-left">
+        <div className="absolute bottom-20 md:bottom-20 left-1/2 -translate-x-1/2 md:left-24 md:translate-x-0 z-30 flex items-center gap-4 scale-90 md:scale-100 origin-bottom w-full justify-center md:justify-start md:w-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="flex items-center bg-white/80 md:bg-transparent p-2 md:p-0 rounded-full md:rounded-none backdrop-blur-md md:backdrop-blur-none"
+            className="flex items-center bg-white/90 md:bg-transparent p-2 md:p-0 rounded-full md:rounded-none backdrop-blur-md md:backdrop-blur-none shadow-sm md:shadow-none"
           >
             {/* Avatar group */}
             <div className="flex -space-x-3">
@@ -173,7 +173,7 @@ export default function HomeClient({
           </motion.p>
         </div>
 
-        <div className="absolute bottom-6 md:bottom-32 right-4 md:right-24 z-30 scale-75 md:scale-100 origin-bottom-right">
+        <div className="absolute bottom-4 md:bottom-32 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-24 z-30 scale-90 md:scale-100 origin-bottom w-max">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
