@@ -46,13 +46,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       <main className="max-w-4xl mx-auto px-6 pt-32 md:pt-40 pb-20">
         
-        {/* Breadcrumb / Back Link */}
-        <div className="mb-8">
+        {/* Prominent Back Button */}
+        <div className="mb-10">
           <Link
-            href="/#work"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-500 hover:text-black transition-colors"
+            href="/#selected-works"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/10 bg-white hover:bg-[#111111] hover:text-white transition-all text-xs font-bold shadow-2xs group"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to Selected Work
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Portfolio
           </Link>
         </div>
 

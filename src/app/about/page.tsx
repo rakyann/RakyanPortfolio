@@ -24,13 +24,13 @@ export default function AboutPage() {
 
       <main className="flex-grow container mx-auto px-6 md:px-12 pt-32 md:pt-40 pb-20 max-w-4xl">
         
-        {/* Back Link */}
-        <div className="mb-8">
+        {/* Prominent Back Button */}
+        <div className="mb-10">
           <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-500 hover:text-black transition-colors"
+            href="/#about"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/10 bg-white hover:bg-[#111111] hover:text-white transition-all text-xs font-bold shadow-2xs group"
           >
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Portfolio
           </Link>
         </div>
 

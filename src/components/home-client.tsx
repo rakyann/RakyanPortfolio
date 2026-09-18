@@ -13,12 +13,20 @@ import {
   Sparkles, 
   GraduationCap, 
   ExternalLink,
-  ChevronDown
+  Layers,
+  Palette,
+  Code2,
+  Cpu,
+  Compass,
+  CheckCircle2,
+  Flame,
+  Star
 } from "lucide-react";
 import { PROJECTS, Project } from "@/data/projects";
 import { EXPERIENCES, EDUCATIONS, SKILL_CATEGORIES, PROCESS_STEPS } from "@/data/experience";
 import { ExperienceTimeline } from "@/components/ui/experience-timeline";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { Footer } from "@/components/layout/footer";
 
 export default function HomeClient({ 
   projects = PROJECTS,
@@ -64,7 +72,7 @@ export default function HomeClient({
         <div className="hidden md:flex items-center gap-3 pointer-events-auto">
           <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-white/70 backdrop-blur-md shadow-2xs">
             <span className="w-2.5 h-2.5 rounded-full bg-[#BEF264] animate-pulse shadow-[0_0_8px_#BEF264]" />
-            <span className="text-xs font-bold tracking-tight text-zinc-800">UI/UX Designer • Available for Opportunities</span>
+            <span className="text-xs font-bold tracking-tight text-zinc-800">UI/UX Designer • Open for Opportunities</span>
           </div>
 
           <a 
@@ -102,7 +110,7 @@ export default function HomeClient({
               </a>
               <div className="w-full h-px bg-black/5" />
               <a href="#selected-works" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#88c226] hover:translate-x-1 transition-all">
-                All Projects
+                Selected Works
               </a>
               <div className="w-full h-px bg-black/5" />
               <a href="#about" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#88c226] hover:translate-x-1 transition-all">
@@ -118,7 +126,7 @@ export default function HomeClient({
               </a>
               <div className="w-full h-px bg-black/5" />
               <a href="#skills" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#88c226] hover:translate-x-1 transition-all">
-                Skills
+                Skills & Toolbox
               </a>
               <div className="pt-2 border-t border-black/10">
                 <a 
@@ -351,49 +359,54 @@ export default function HomeClient({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
           {projects.map((p, idx) => (
             <Link 
               href={`/work/${p.slug}`} 
               key={p.slug} 
-              className={`group ${idx % 2 !== 0 ? 'md:mt-12' : ''}`}
+              className={`group flex flex-col justify-between ${idx % 2 !== 0 ? 'md:mt-12' : ''}`}
             >
-              <div className="bg-zinc-100 rounded-3xl p-5 md:p-6 aspect-[16/11] mb-4 overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-black/5">
-                <img 
-                  src={p.heroImage} 
-                  className="w-full h-full object-cover object-top rounded-2xl group-hover:scale-104 transition-transform duration-500" 
-                  alt={p.title} 
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 px-2">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full border border-black/10 bg-white shadow-2xs">
-                      {p.category}
-                    </span>
-                    {p.isPersonalProject && (
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200">
-                        ✦ Self-Initiated
+              <div>
+                <div className="bg-zinc-100 rounded-3xl p-4 md:p-5 aspect-[16/11] mb-5 overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/5 group-hover:shadow-xl transition-all duration-500">
+                  <img 
+                    src={p.heroImage} 
+                    className="w-full h-full object-cover object-top rounded-2xl group-hover:scale-103 transition-transform duration-500" 
+                    alt={p.title} 
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2 px-2">
+                  {/* Sleek Dribbble-Style Badges */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[11px] font-semibold tracking-tight px-3 py-1 rounded-full bg-zinc-100 text-zinc-800 border border-black/5">
+                        {p.category}
                       </span>
-                    )}
-                    {p.isOngoing && (
-                      <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                        Ongoing
+                      {p.isPersonalProject && (
+                        <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#111111] text-white flex items-center gap-1 shadow-2xs">
+                          ✦ Self-Initiated
+                        </span>
+                      )}
+                      {p.isOngoing && (
+                        <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Ongoing
+                        </span>
+                      )}
+                    </div>
+                    {p.link && (
+                      <span className="text-xs font-bold text-zinc-500 group-hover:text-black flex items-center gap-1 transition-colors">
+                        Live Demo <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     )}
                   </div>
-                  {p.link && (
-                    <span className="text-xs font-semibold text-zinc-400 group-hover:text-black flex items-center gap-1">
-                      Live <ExternalLink className="w-3 h-3" />
-                    </span>
-                  )}
+
+                  <h3 className="font-bold text-2xl md:text-3xl tracking-tight text-[#111111] group-hover:text-black mt-1">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-zinc-600 line-clamp-2 leading-relaxed font-medium">
+                    {p.shortDescription}
+                  </p>
                 </div>
-                <h3 className="font-bold text-xl md:text-2xl tracking-tight text-[#111111] group-hover:text-black mt-1">
-                  {p.title}
-                </h3>
-                <p className="text-xs md:text-sm text-zinc-600 line-clamp-2 leading-relaxed font-medium">
-                  {p.shortDescription}
-                </p>
               </div>
             </Link>
           ))}
@@ -436,10 +449,10 @@ export default function HomeClient({
       {/* Experience Timeline Section */}
       <section id="experience" className="container mx-auto px-4 md:px-8 py-24 bg-white border-y border-black/5">
         <div className="text-center mb-16">
-          <p className="font-playfair italic text-zinc-500 mb-2">/ Career Journey</p>
+          <p className="font-playfair italic text-zinc-500 mb-2">/ Career Progression</p>
           <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Experience & Growth</h2>
           <p className="text-zinc-500 text-sm mt-2 max-w-md mx-auto">
-            From foundational visual design studio internships to collaborating on real-world digital products.
+            Interactive breakdown of my journey from foundational design studio internships to real-world product collaborations.
           </p>
         </div>
 
@@ -504,58 +517,207 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* High-End Dribbble Bento Grid: Capabilities, Skills & Tools */}
       <section id="skills" className="container mx-auto px-4 md:px-8 py-24 bg-white border-t border-black/5">
         <div className="text-center mb-16">
-          <p className="font-playfair italic text-zinc-500 mb-2">/ Capabilities</p>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Skills & Tools</h2>
+          <p className="font-playfair italic text-zinc-500 mb-2">/ Capabilities & Toolbox</p>
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Skills & Capabilities</h2>
+          <p className="text-zinc-500 text-sm mt-2 max-w-md mx-auto">
+            Core design competencies, tools, and technical understanding developed through practical experience.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {SKILL_CATEGORIES.map((cat) => (
-            <div key={cat.category} className="p-6 rounded-2xl bg-[#FAFAFA] border border-black/5 shadow-2xs">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-black mb-4 pb-2 border-b border-black/10">
-                {cat.category}
+        {/* Dynamic Eye-Catching Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+          
+          {/* Bento Card 1: UI/UX & Product Design (Span 7) */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="md:col-span-7 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-sm"
+          >
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-10 h-10 rounded-2xl bg-[#BEF264] flex items-center justify-center text-black shadow-2xs">
+                  <Palette className="w-5 h-5" />
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
+                  Core Discipline
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#111111] mb-2">
+                UI/UX & Interface Design
               </h3>
-              <ul className="flex flex-col gap-2">
-                {cat.skills.map((skill) => (
-                  <li key={skill} className="text-xs md:text-sm text-zinc-700 font-medium flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#BEF264] border border-black/20 shrink-0" />
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
+                Creating intuitive, human-centered digital experiences with strong visual hierarchy and design systems.
+              </p>
             </div>
-          ))}
+
+            {/* Interactive Floating Pill Tags */}
+            <div className="flex flex-wrap gap-2.5 relative z-10">
+              {[
+                "UI Design",
+                "UX Design",
+                "Design Systems",
+                "Wireframing",
+                "Prototyping",
+                "User Research",
+                "Usability Testing",
+                "User Flow",
+                "Sitemap",
+                "Responsive Design",
+                "Dashboard Design",
+                "Information Architecture",
+                "Design Thinking",
+                "Atomic Design"
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black hover:bg-black hover:text-white transition-all cursor-default shadow-2xs"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bento Card 2: Design & Collaboration Tools (Span 5) */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="md:col-span-5 rounded-[2.5rem] bg-[#111111] text-white p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl"
+          >
+            {/* Ambient Background Accent */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#BEF264]/20 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#BEF264] border border-white/10">
+                  <Layers className="w-5 h-5" />
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#BEF264] bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                  Toolbox
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+                Tools & Workflow
+              </h3>
+              <p className="text-sm text-zinc-400 leading-relaxed font-medium mb-6">
+                Proficient with industry-standard design, prototyping, and collaboration applications.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2 relative z-10">
+              {[
+                "Figma",
+                "FigJam",
+                "Notion",
+                "ClickUp",
+                "Trello",
+                "Slack",
+                "Discord",
+                "Jitter",
+                "Google Calendar"
+              ].map((tool) => (
+                <span
+                  key={tool}
+                  className="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-white border border-white/15 hover:bg-[#BEF264] hover:text-black hover:border-transparent transition-all cursor-default"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bento Card 3: Technical & Frontend Empathy (Span 6) */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="md:col-span-6 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-10 h-10 rounded-2xl bg-zinc-200 flex items-center justify-center text-black">
+                  <Code2 className="w-5 h-5" />
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
+                  Technical Empathy
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight text-[#111111] mb-2">
+                Frontend & Implementation
+              </h3>
+              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
+                Bridging UI designs with clean code, responsive layouts, and seamless developer handoff.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "HTML5",
+                "CSS3",
+                "Bootstrap",
+                "Responsive Layouts",
+                "Developer Handoff",
+                "Figma-to-Code"
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black transition-all cursor-default shadow-2xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bento Card 4: Strategy & Communication (Span 6) */}
+          <motion.div 
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.3 }}
+            className="md:col-span-6 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between shadow-sm"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-10 h-10 rounded-2xl bg-zinc-200 flex items-center justify-center text-black">
+                  <Compass className="w-5 h-5" />
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
+                  Storytelling
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight text-[#111111] mb-2">
+                Communication & Strategy
+              </h3>
+              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
+                Translating design rationale into clear narratives, client presentations, and accessible copy.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {[
+                "Copywriting",
+                "UX Writing",
+                "Storytelling",
+                "Presentation",
+                "Design Reviews",
+                "Feedback Iteration"
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black transition-all cursor-default shadow-2xs"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
-      {/* Simple Brand Footer */}
-      <footer id="footer" className="w-full bg-white border-t border-black/5 py-14">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col gap-1">
-            <div className="font-bold text-2xl tracking-tighter text-[#111111]">Rakyan.</div>
-            <p className="text-xs text-zinc-500 font-medium">UI/UX Designer & Information Systems Student</p>
-          </div>
-          
-          <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-zinc-600">
-            <a href="https://github.com/rakyann" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/rakyan-sakuntala-9a9841219/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">
-              LinkedIn
-            </a>
-            <a href="mailto:rkyan22@gmail.com" className="hover:text-black transition-colors">
-              rkyan22@gmail.com
-            </a>
-            <a href="/cv.pdf" target="_blank" rel="noreferrer" className="font-bold text-black hover:underline flex items-center gap-1">
-              <Download className="w-3.5 h-3.5" /> CV (PDF)
-            </a>
-          </div>
-
-          <p className="text-xs text-zinc-400">© 2026 Rakyan Jenar Sakuntala. All rights reserved.</p>
-        </div>
-      </footer>
+      {/* Dribbble Style Modern Footer */}
+      <Footer />
 
     </div>
   );
