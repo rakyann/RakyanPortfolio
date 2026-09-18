@@ -181,6 +181,11 @@ export default function HomeClient({
                           <span className="px-3 py-1 rounded-full text-xs font-bold bg-white border border-black/10 text-zinc-800">
                             {project.category}
                           </span>
+                          {project.isPersonalProject && (
+                            <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200 flex items-center gap-1">
+                              ✦ Self-Initiated Project
+                            </span>
+                          )}
                           {project.isOngoing && (
                             <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Ongoing

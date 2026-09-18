@@ -17,6 +17,7 @@ export interface Project {
   galleryImages?: string[];
   link?: string;
   isOngoing?: boolean;
+  isPersonalProject?: boolean;
   
   overview: {
     role: string;
@@ -88,6 +89,7 @@ export const PROJECTS: Project[] = [
     heroImage: "/mdmedia_desktop.jpg",
     galleryImages: ["/mdmedia_desktop.jpg", "/mdmedia_figma.png", "/mdm1.png"],
     isOngoing: false,
+    isPersonalProject: false,
     
     overview: {
       role: "UI/UX Designer",
@@ -184,6 +186,67 @@ export const PROJECTS: Project[] = [
     }
   },
   {
+    slug: "accord-creative-studio",
+    title: "Accord Creative Studio",
+    category: "Personal Project • Digital Studio Landing Page",
+    shortDescription: "A self-initiated concept studio landing page exploring bold typography, high-impact dark aesthetics, and interactive web elements.",
+    color: "from-zinc-900/10 to-amber-500/10",
+    heroImage: "/accord_studio.png",
+    galleryImages: ["/accord_studio.png"],
+    link: "https://accord-creative-studio.vercel.app/",
+    isOngoing: false,
+    isPersonalProject: true,
+    
+    overview: {
+      role: "UI/UX Designer & Developer (Personal Project)",
+      timeline: "Self-Initiated",
+      tools: ["Figma", "HTML5", "CSS3", "JavaScript", "Vercel"],
+      deliverables: ["Visual Identity & Concept", "Responsive Landing Page UI", "Custom CSS & JS Animations", "Live Web Deployment"],
+      productType: "Self-Initiated Digital Studio Website"
+    },
+
+    problem: {
+      title: "Exploring Bold Visual Aesthetics & Independent Full-Cycle Creation",
+      context: "Accord Creative Studio was conceived as a personal exploration into modern creative studio branding. I wanted to design an interface that balances expressive, high-contrast typography with smooth, accessible web interactions—and bring it to life as a live website independently.",
+      coreChallenge: "How might I craft a visually striking and memorable digital studio presence while maintaining clear information hierarchy, responsive layouts, and performant code?"
+    },
+
+    myRole: {
+      description: "As a personal project, I took full ownership of the entire design and development process from initial visual concept to code implementation.",
+      responsibilities: [
+        "Designed the complete landing page layout, color scheme, and typography hierarchy in Figma.",
+        "Explored expressive typographic pairings and geometric starburst accent motifs.",
+        "Built the website from scratch using semantic HTML5, modular CSS3, and vanilla JavaScript.",
+        "Implemented interactive scroll reveal animations and smooth FAQ accordion disclosures.",
+        "Deployed and maintained the live production website on Vercel."
+      ]
+    },
+
+    visualDesign: {
+      description: "Established a bold, modern dark aesthetic designed to evoke craft, creativity, and confidence.",
+      principles: [
+        "High-contrast dark background paired with crisp typography and subtle border definitions.",
+        "Expressive typographic scale blending modern display fonts with clean reading type.",
+        "Playful geometric sparkle stars and continuous marquee banners that give the interface rhythm."
+      ]
+    },
+
+    finalUi: {
+      description: "Delivered an interactive, fully responsive landing page with engaging micro-interactions.",
+      highlights: [
+        "Hero section featuring a real-time timezone clock and clean social links.",
+        "Structured service offerings card grid with categorized tags.",
+        "Interactive FAQ accordion with smooth toggle transitions.",
+        "Floating quick-action contact trigger for easy user access."
+      ]
+    },
+
+    reflection: {
+      learnings: "Designing and coding Accord Creative Studio independently gave me end-to-end creative freedom. It deepened my skills in fine-tuning CSS animations, structuring modular code, and ensuring that bold visual designs translate accurately into responsive browsers.",
+      nextSteps: "Continue experimenting with interactive canvas elements and scroll-driven physics."
+    }
+  },
+  {
     slug: "gani-consulting",
     title: "CV Gani Pranata - Psychology & HR Platform",
     category: "Tele-Health & Corporate Platform",
@@ -192,6 +255,7 @@ export const PROJECTS: Project[] = [
     heroImage: "/gani_header.png",
     galleryImages: ["/gani_header.png", "/gani_hero.png"],
     isOngoing: true,
+    isPersonalProject: false,
     
     overview: {
       role: "UI/UX Designer",
@@ -277,6 +341,7 @@ export const PROJECTS: Project[] = [
     galleryImages: ["/wedding_invitation.png"],
     link: "https://example-wedding-invitation.vercel.app/",
     isOngoing: false,
+    isPersonalProject: false,
     
     overview: {
       role: "UI/UX Designer & Web Developer",
@@ -343,6 +408,7 @@ export const PROJECTS: Project[] = [
     heroImage: "/dam_studio.png",
     galleryImages: ["/dam_studio.png"],
     isOngoing: false,
+    isPersonalProject: false,
     
     overview: {
       role: "UI/UX Designer & Frontend Developer",
@@ -404,9 +470,10 @@ export const PROJECTS: Project[] = [
 
 export function getProjectBySlug(slugOrId: string): Project | undefined {
   if (slugOrId === "1" || slugOrId === "mdmedia-portal") return PROJECTS.find((p) => p.slug === "mdmedia-portal");
-  if (slugOrId === "2" || slugOrId === "gani-consulting") return PROJECTS.find((p) => p.slug === "gani-consulting");
-  if (slugOrId === "3" || slugOrId === "olivia-ralph-wedding") return PROJECTS.find((p) => p.slug === "olivia-ralph-wedding");
-  if (slugOrId === "4" || slugOrId === "dam-studio-3d") return PROJECTS.find((p) => p.slug === "dam-studio-3d");
+  if (slugOrId === "2" || slugOrId === "accord-creative-studio") return PROJECTS.find((p) => p.slug === "accord-creative-studio");
+  if (slugOrId === "3" || slugOrId === "gani-consulting") return PROJECTS.find((p) => p.slug === "gani-consulting");
+  if (slugOrId === "4" || slugOrId === "olivia-ralph-wedding") return PROJECTS.find((p) => p.slug === "olivia-ralph-wedding");
+  if (slugOrId === "5" || slugOrId === "dam-studio-3d") return PROJECTS.find((p) => p.slug === "dam-studio-3d");
   
   const idx = parseInt(slugOrId, 10);
   if (!isNaN(idx) && idx >= 1 && idx <= PROJECTS.length) {

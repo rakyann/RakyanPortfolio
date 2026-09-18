@@ -52,6 +52,11 @@ export default function WorkPage() {
                   <span className="px-3 py-1 rounded-full border border-black/10 text-xs font-bold bg-zinc-50 text-zinc-800">
                     {project.category}
                   </span>
+                  {project.isPersonalProject && (
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200">
+                      ✦ Self-Initiated
+                    </span>
+                  )}
                   {project.isOngoing && (
                     <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                       Ongoing

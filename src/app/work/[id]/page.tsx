@@ -62,6 +62,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <span className="px-3 py-1 rounded-full border border-black/10 bg-white text-xs font-bold tracking-wide uppercase shadow-2xs">
               {project.category}
             </span>
+            {project.isPersonalProject && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200">
+                ✦ Self-Initiated Project
+              </span>
+            )}
             {project.isOngoing && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Active Development
