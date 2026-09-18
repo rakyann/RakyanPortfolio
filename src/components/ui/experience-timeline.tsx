@@ -2,101 +2,77 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ArrowUpRight, Sparkles, Building2, Calendar, MapPin, Plus, Minus } from "lucide-react";
-import { EXPERIENCES, ExperienceItem } from "@/data/experience";
+import { ArrowUpRight, Plus, Minus } from "lucide-react";
+import { EXPERIENCES } from "@/data/experience";
 import { cn } from "@/lib/utils";
 
 export function ExperienceTimeline() {
-  const [activeId, setActiveId] = useState<string | null>("freelance-uiux");
+  const [expandedId, setExpandedId] = useState<string | null>("freelance-uiux");
 
   return (
     <div className="w-full max-w-5xl mx-auto">
-      {/* Interactive Timeline List */}
-      <div className="relative flex flex-col gap-6">
+      {/* Sleek Editorial Timeline List */}
+      <div className="flex flex-col divide-y divide-black/10 border-y border-black/10">
         
         {EXPERIENCES.map((exp, index) => {
-          const isActive = activeId === exp.id;
+          const isExpanded = expandedId === exp.id;
           const isLatest = index === 0;
 
           return (
-            <motion.div
+            <div
               key={exp.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
               className={cn(
-                "group relative rounded-[2rem] p-6 md:p-8 transition-all duration-500 cursor-pointer overflow-hidden border",
-                isActive 
-                  ? "bg-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] border-black/15 ring-1 ring-black/5" 
-                  : "bg-white/60 hover:bg-white border-black/5 hover:border-black/15 hover:shadow-md"
+                "group py-8 md:py-10 transition-all duration-300 cursor-pointer",
+                isExpanded ? "bg-black/[0.015]" : "hover:bg-black/[0.01]"
               )}
-              onClick={() => setActiveId(isActive ? null : exp.id)}
+              onClick={() => setExpandedId(isExpanded ? null : exp.id)}
             >
-              {/* Active Indicator Bar on Left */}
-              <div 
-                className={cn(
-                  "absolute left-0 top-0 bottom-0 w-1.5 transition-all duration-300",
-                  isActive ? "bg-[#BEF264]" : "bg-transparent group-hover:bg-zinc-200"
-                )} 
-              />
-
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              {/* Main Row */}
+              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 md:gap-8 px-2">
                 
-                {/* Role & Company Header */}
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="font-mono text-xs font-bold text-zinc-400 px-3 py-1 bg-zinc-100 rounded-full">
-                      {exp.period}
-                    </span>
-                    {exp.id === "mdmedia" && (
-                      <span className="text-[11px] font-bold text-blue-800 bg-blue-50 border border-blue-200/60 px-2.5 py-0.5 rounded-full">
-                        Enterprise Portal
-                      </span>
-                    )}
-                    {exp.id === "callour" && (
-                      <span className="text-[11px] font-bold text-purple-800 bg-purple-50 border border-purple-200/60 px-2.5 py-0.5 rounded-full">
-                        Foundation & Design Systems
-                      </span>
-                    )}
-                    {isLatest && (
-                      <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" /> Active
-                      </span>
-                    )}
-                  </div>
+                {/* Period & Status */}
+                <div className="w-full md:w-56 shrink-0 flex items-center gap-2">
+                  <span className="font-mono text-xs md:text-sm font-semibold text-zinc-400">
+                    {exp.period}
+                  </span>
+                  {isLatest && (
+                    <span className="w-2 h-2 rounded-full bg-[#BEF264] border border-black/30 animate-pulse" />
+                  )}
+                </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 mt-1">
+                {/* Role & Company */}
+                <div className="flex-grow">
+                  <div className="flex flex-wrap items-baseline gap-2 md:gap-3">
                     <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#111111] group-hover:text-black transition-colors">
                       {exp.role}
                     </h3>
-                    <span className="text-lg md:text-xl font-playfair italic text-zinc-500">
-                      @ {exp.company}
+                    <span className="text-xl md:text-2xl font-playfair italic text-zinc-500">
+                      — {exp.company}
                     </span>
                   </div>
+
+                  <p className="text-sm md:text-base text-zinc-600 font-medium mt-2 leading-relaxed max-w-2xl">
+                    {exp.description}
+                  </p>
                 </div>
 
-                {/* Right Action Button */}
-                <div className="flex items-center gap-3 shrink-0 self-end md:self-center">
+                {/* Minimalist Toggle Indicator */}
+                <div className="shrink-0 self-start md:self-center">
                   <div className={cn(
-                    "w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 border",
-                    isActive 
-                      ? "bg-[#111111] text-white border-black rotate-180" 
-                      : "bg-zinc-50 text-zinc-500 border-black/10 group-hover:bg-[#BEF264] group-hover:text-black group-hover:border-black/20"
+                    "w-9 h-9 rounded-full border border-black/10 flex items-center justify-center transition-all duration-300",
+                    isExpanded 
+                      ? "bg-[#111111] text-white rotate-180" 
+                      : "bg-white text-zinc-500 group-hover:border-black/30 group-hover:text-black"
                   )}>
-                    {isActive ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                    {isExpanded ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </div>
+
               </div>
 
-              {/* Sub-summary */}
-              <p className="text-sm md:text-base text-zinc-600 mt-3 font-medium leading-relaxed max-w-3xl">
-                {exp.description}
-              </p>
-
-              {/* Expanded Rich Details */}
+              {/* Smooth Expanded Details */}
               <AnimatePresence>
-                {isActive && (
+                {isExpanded && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
@@ -104,35 +80,26 @@ export function ExperienceTimeline() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-6 mt-6 border-t border-black/5">
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                        <div className="md:col-span-4 flex flex-col gap-2">
-                          <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">
-                            Key Focus Areas
-                          </span>
-                          <p className="text-xs text-zinc-500 font-medium">
-                            Practical responsibilities, design systems, and cross-functional team collaborations.
-                          </p>
-                        </div>
-                        
-                        <div className="md:col-span-8 flex flex-col gap-3">
+                    <div className="pt-6 pb-2 md:pl-64 px-2">
+                      <div className="p-6 md:p-8 rounded-3xl bg-white border border-black/10 shadow-sm">
+                        <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-4">
+                          Key Contributions & Learnings
+                        </p>
+                        <ul className="flex flex-col gap-3">
                           {exp.keyPoints.map((point, i) => (
-                            <div 
-                              key={i} 
-                              className="p-4 rounded-2xl bg-zinc-50 border border-black/5 flex items-start gap-3 text-sm text-zinc-800 font-medium"
-                            >
-                              <span className="w-2 h-2 rounded-full bg-[#BEF264] border border-black/20 mt-1.5 shrink-0" />
-                              <span className="leading-relaxed">{point}</span>
-                            </div>
+                            <li key={i} className="text-sm md:text-[15px] text-zinc-700 leading-relaxed font-medium flex items-start gap-3">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#111111] mt-2 shrink-0" />
+                              <span>{point}</span>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
 
-            </motion.div>
+            </div>
           );
         })}
 

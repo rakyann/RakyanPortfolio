@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp, ArrowUpRight, Mail, Download, Sparkles, Heart } from "lucide-react";
-import { MagneticButton } from "@/components/ui/magnetic-button";
+import { ArrowUp, ArrowUpRight, Mail, Download } from "lucide-react";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -41,36 +40,34 @@ export function Footer() {
   };
 
   return (
-    <footer id="footer" className="relative bg-[#111111] text-white overflow-hidden pt-24 pb-12 mt-24 rounded-t-[3rem] md:rounded-t-[4rem]">
-      
-      {/* Decorative Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[300px] bg-gradient-to-b from-[#BEF264]/15 to-transparent blur-3xl pointer-events-none" />
-
+    <footer id="footer" className="relative bg-[#111111] text-white overflow-hidden pt-28 pb-14 mt-24">
       <div className="container mx-auto px-6 md:px-12 max-w-6xl relative z-10">
         
-        {/* Massive Dribbble-Style Callout Header */}
-        <div className="flex flex-col items-center text-center mb-20">
+        {/* Editorial Studio Callout */}
+        <div className="flex flex-col items-start md:items-center text-left md:text-center mb-24">
           
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#BEF264] text-xs font-bold mb-6 border border-white/10 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-white text-xs font-mono font-semibold mb-8 border border-white/10">
             <span className="w-2 h-2 rounded-full bg-[#BEF264] animate-pulse" />
-            <span>Open for internship & junior UI/UX roles</span>
+            <span>Available for Internship & Junior UI/UX Opportunities</span>
           </div>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-3xl leading-[1.05] mb-6">
-            Let's build something <span className="font-playfair italic text-[#BEF264] font-normal">extraordinary</span> together.
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-3xl leading-[1.08] mb-8">
+            Have a project in mind? <br className="hidden sm:inline" />
+            <span className="font-playfair italic font-normal text-zinc-300">Let's work together.</span>
           </h2>
 
-          <p className="text-zinc-400 text-base md:text-xl max-w-xl mb-10 leading-relaxed font-medium">
-            Have a project in mind, an internship opportunity, or just want to connect? My inbox is always open.
+          <p className="text-zinc-400 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-normal">
+            Whether you're looking for an internship designer, a fresh perspective on a product, or want to say hello.
           </p>
 
-          {/* Big Interactive Email Pill Button */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* Large Clickable Direct Email Headline */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <a
               href="mailto:rkyan22@gmail.com"
-              className="inline-flex items-center gap-3 bg-[#BEF264] text-[#111111] hover:bg-white px-8 py-4 rounded-full font-bold text-base transition-all hover:scale-105 shadow-[0_0_30px_rgba(190,242,100,0.3)] group"
+              className="inline-flex items-center gap-3 bg-white text-[#111111] hover:bg-[#BEF264] px-8 py-4 rounded-full font-bold text-base transition-all hover:scale-105 shadow-xl group cursor-pointer"
             >
-              <Mail className="w-5 h-5" /> rkyan22@gmail.com
+              <Mail className="w-5 h-5 text-zinc-700 group-hover:text-black transition-colors" />
+              <span>rkyan22@gmail.com</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
 
@@ -78,90 +75,89 @@ export function Footer() {
               href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/15 px-7 py-4 rounded-full font-bold text-base transition-all hover:scale-105 backdrop-blur-md"
+              className="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/15 px-8 py-4 rounded-full font-bold text-base transition-all hover:scale-105 backdrop-blur-md"
             >
-              <Download className="w-5 h-5 text-[#BEF264]" /> Download CV (PDF)
+              <Download className="w-4 h-4 text-zinc-300" />
+              <span>Download CV (PDF)</span>
             </a>
           </div>
+
         </div>
 
-        {/* Middle Navigation & Socials Grid */}
+        {/* Studio Info & Social Navigation Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 py-12 border-y border-white/10 items-center justify-between">
           
           {/* Brand & Identity */}
-          <div className="md:col-span-4 flex flex-col gap-2">
-            <Link href="/" className="font-bold text-3xl tracking-tighter text-white hover:text-[#BEF264] transition-colors">
-              Rakyan<span className="text-[#BEF264]">.</span>
+          <div className="md:col-span-5 flex flex-col gap-2">
+            <Link href="/" className="font-bold text-3xl tracking-tighter text-white hover:text-zinc-300 transition-colors">
+              Rakyan.
             </Link>
             <p className="text-zinc-400 text-sm font-medium">
-              UI/UX Designer • Information Systems Student
-            </p>
-            <p className="text-xs text-zinc-500">
-              Telkom University Purwokerto • Indonesia
+              UI/UX Designer • Telkom University Purwokerto
             </p>
           </div>
 
           {/* Quick Page Links */}
-          <div className="md:col-span-4 flex flex-wrap items-center justify-start md:justify-center gap-6 text-sm font-semibold text-zinc-300">
-            <a href="#featured-work" className="hover:text-[#BEF264] transition-colors">Work</a>
-            <a href="#about" className="hover:text-[#BEF264] transition-colors">About</a>
-            <a href="#experience" className="hover:text-[#BEF264] transition-colors">Experience</a>
-            <a href="#process" className="hover:text-[#BEF264] transition-colors">Process</a>
-            <a href="#skills" className="hover:text-[#BEF264] transition-colors">Skills</a>
+          <div className="md:col-span-4 flex flex-wrap items-center justify-start md:justify-center gap-6 text-sm font-medium text-zinc-400">
+            <a href="#featured-work" className="hover:text-white transition-colors">Work</a>
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#process" className="hover:text-white transition-colors">Process</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
           </div>
 
-          {/* Social Icons Strip */}
-          <div className="md:col-span-4 flex items-center justify-start md:justify-end gap-3">
+          {/* Social Icons */}
+          <div className="md:col-span-3 flex items-center justify-start md:justify-end gap-3">
             <a
               href="https://www.linkedin.com/in/rakyan-sakuntala-9a9841219/"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-[#BEF264] hover:text-[#111111] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
               aria-label="LinkedIn"
             >
-              <LinkedinIcon className="w-5 h-5" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
               href="https://github.com/rakyann"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-[#BEF264] hover:text-[#111111] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
               aria-label="GitHub"
             >
-              <GithubIcon className="w-5 h-5" />
+              <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href="https://dribbble.com"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-[#BEF264] hover:text-[#111111] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
               aria-label="Dribbble"
             >
-              <DribbbleIcon className="w-5 h-5" />
+              <DribbbleIcon className="w-4 h-4" />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="w-11 h-11 rounded-full bg-white/10 hover:bg-[#BEF264] hover:text-[#111111] text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-black text-white flex items-center justify-center transition-all hover:scale-110 border border-white/10"
               aria-label="Instagram"
             >
-              <InstagramIcon className="w-5 h-5" />
+              <InstagramIcon className="w-4 h-4" />
             </a>
           </div>
 
         </div>
 
-        {/* Bottom Bar & Scroll To Top */}
+        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-medium">
-          <p>© {new Date().getFullYear()} Rakyan Jenar Sakuntala. Designed & crafted with care.</p>
+          <p>© {new Date().getFullYear()} Rakyan Jenar Sakuntala. All rights reserved.</p>
           
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors cursor-pointer group"
           >
             <span>Back to top</span>
-            <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#BEF264] group-hover:text-black transition-all">
+            <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>

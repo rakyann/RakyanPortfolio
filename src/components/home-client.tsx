@@ -517,201 +517,125 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* High-End Dribbble Bento Grid: Capabilities, Skills & Tools */}
-      <section id="skills" className="container mx-auto px-4 md:px-8 py-24 bg-white border-t border-black/5">
-        <div className="text-center mb-16">
-          <p className="font-playfair italic text-zinc-500 mb-2">/ Capabilities & Toolbox</p>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight">Skills & Capabilities</h2>
-          <p className="text-zinc-500 text-sm mt-2 max-w-md mx-auto">
-            Core design competencies, tools, and technical understanding developed through practical experience.
-          </p>
-        </div>
-
-        {/* Dynamic Eye-Catching Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+      {/* Editorial Skills & Toolbox Matrix */}
+      <section id="skills" className="container mx-auto px-6 md:px-12 py-28 bg-white border-t border-black/10">
+        <div className="max-w-6xl mx-auto">
           
-          {/* Bento Card 1: UI/UX & Product Design (Span 7) */}
-          <motion.div 
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
-            className="md:col-span-7 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-sm"
-          >
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="w-10 h-10 rounded-2xl bg-[#BEF264] flex items-center justify-center text-black shadow-2xs">
-                  <Palette className="w-5 h-5" />
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
-                  Core Discipline
-                </span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#111111] mb-2">
-                UI/UX & Interface Design
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6 border-b border-black/10 pb-12">
+            <div>
+              <p className="font-playfair italic text-zinc-400 text-lg mb-2">/ Capabilities & Methods</p>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#111111]">
+                Skills & Toolbox
+              </h2>
+            </div>
+            <p className="text-zinc-500 text-sm md:text-base max-w-md font-medium leading-relaxed">
+              Core design disciplines, collaboration tools, and technical awareness honed through real project work.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+            
+            {/* Column 1: UI/UX Design */}
+            <div className="flex flex-col">
+              <span className="font-mono text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">01 / Design</span>
+              <h3 className="text-xl font-bold text-black tracking-tight mb-6 pb-4 border-b border-black/10">
+                UI & UX Design
               </h3>
-              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
-                Creating intuitive, human-centered digital experiences with strong visual hierarchy and design systems.
-              </p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  "UI Design",
+                  "UX Design",
+                  "Design Systems",
+                  "Wireframing",
+                  "Prototyping",
+                  "User Research",
+                  "Usability Testing",
+                  "User Flow & Sitemap",
+                  "Responsive Design",
+                  "Dashboard Design",
+                  "Atomic Design"
+                ].map((item) => (
+                  <li key={item} className="text-sm font-medium text-zinc-700 hover:text-black transition-colors flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#BEF264] border border-black/20 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Interactive Floating Pill Tags */}
-            <div className="flex flex-wrap gap-2.5 relative z-10">
-              {[
-                "UI Design",
-                "UX Design",
-                "Design Systems",
-                "Wireframing",
-                "Prototyping",
-                "User Research",
-                "Usability Testing",
-                "User Flow",
-                "Sitemap",
-                "Responsive Design",
-                "Dashboard Design",
-                "Information Architecture",
-                "Design Thinking",
-                "Atomic Design"
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black hover:bg-black hover:text-white transition-all cursor-default shadow-2xs"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Bento Card 2: Design & Collaboration Tools (Span 5) */}
-          <motion.div 
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
-            className="md:col-span-5 rounded-[2.5rem] bg-[#111111] text-white p-8 md:p-10 flex flex-col justify-between relative overflow-hidden shadow-xl"
-          >
-            {/* Ambient Background Accent */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#BEF264]/20 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <span className="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center text-[#BEF264] border border-white/10">
-                  <Layers className="w-5 h-5" />
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#BEF264] bg-white/10 px-3 py-1 rounded-full border border-white/10">
-                  Toolbox
-                </span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+            {/* Column 2: Tools & Workflow */}
+            <div className="flex flex-col">
+              <span className="font-mono text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">02 / Tools</span>
+              <h3 className="text-xl font-bold text-black tracking-tight mb-6 pb-4 border-b border-black/10">
                 Tools & Workflow
               </h3>
-              <p className="text-sm text-zinc-400 leading-relaxed font-medium mb-6">
-                Proficient with industry-standard design, prototyping, and collaboration applications.
-              </p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  "Figma",
+                  "FigJam",
+                  "Notion",
+                  "ClickUp",
+                  "Trello",
+                  "Slack",
+                  "Discord",
+                  "Jitter",
+                  "Google Calendar"
+                ].map((item) => (
+                  <li key={item} className="text-sm font-medium text-zinc-700 hover:text-black transition-colors flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="flex flex-wrap gap-2 relative z-10">
-              {[
-                "Figma",
-                "FigJam",
-                "Notion",
-                "ClickUp",
-                "Trello",
-                "Slack",
-                "Discord",
-                "Jitter",
-                "Google Calendar"
-              ].map((tool) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-white border border-white/15 hover:bg-[#BEF264] hover:text-black hover:border-transparent transition-all cursor-default"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Bento Card 3: Technical & Frontend Empathy (Span 6) */}
-          <motion.div 
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
-            className="md:col-span-6 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between shadow-sm"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="w-10 h-10 rounded-2xl bg-zinc-200 flex items-center justify-center text-black">
-                  <Code2 className="w-5 h-5" />
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
-                  Technical Empathy
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold tracking-tight text-[#111111] mb-2">
-                Frontend & Implementation
+            {/* Column 3: Technical Empathy */}
+            <div className="flex flex-col">
+              <span className="font-mono text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">03 / Technical</span>
+              <h3 className="text-xl font-bold text-black tracking-tight mb-6 pb-4 border-b border-black/10">
+                Frontend Empathy
               </h3>
-              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
-                Bridging UI designs with clean code, responsive layouts, and seamless developer handoff.
-              </p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  "HTML5 & CSS3",
+                  "Bootstrap",
+                  "Tailwind CSS",
+                  "Responsive Layouts",
+                  "Figma-to-Code",
+                  "Developer Handoff"
+                ].map((item) => (
+                  <li key={item} className="text-sm font-medium text-zinc-700 hover:text-black transition-colors flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#BEF264] border border-black/20 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="flex flex-wrap gap-2.5">
-              {[
-                "HTML5",
-                "CSS3",
-                "Bootstrap",
-                "Responsive Layouts",
-                "Developer Handoff",
-                "Figma-to-Code"
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black transition-all cursor-default shadow-2xs"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Bento Card 4: Strategy & Communication (Span 6) */}
-          <motion.div 
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
-            className="md:col-span-6 rounded-[2.5rem] bg-[#FAFAFA] border border-black/10 p-8 md:p-10 flex flex-col justify-between shadow-sm"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="w-10 h-10 rounded-2xl bg-zinc-200 flex items-center justify-center text-black">
-                  <Compass className="w-5 h-5" />
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 bg-white px-3 py-1 rounded-full border border-black/5">
-                  Storytelling
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold tracking-tight text-[#111111] mb-2">
-                Communication & Strategy
+            {/* Column 4: Communication & Strategy */}
+            <div className="flex flex-col">
+              <span className="font-mono text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">04 / Strategy</span>
+              <h3 className="text-xl font-bold text-black tracking-tight mb-6 pb-4 border-b border-black/10">
+                Communication
               </h3>
-              <p className="text-sm text-zinc-600 leading-relaxed font-medium mb-6">
-                Translating design rationale into clear narratives, client presentations, and accessible copy.
-              </p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  "Design Thinking",
+                  "UX Writing",
+                  "Copywriting",
+                  "Storytelling",
+                  "Client Presentation",
+                  "Design Reviews"
+                ].map((item) => (
+                  <li key={item} className="text-sm font-medium text-zinc-700 hover:text-black transition-colors flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="flex flex-wrap gap-2.5">
-              {[
-                "Copywriting",
-                "UX Writing",
-                "Storytelling",
-                "Presentation",
-                "Design Reviews",
-                "Feedback Iteration"
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-zinc-800 border border-black/10 hover:border-black transition-all cursor-default shadow-2xs"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+          </div>
 
         </div>
       </section>
